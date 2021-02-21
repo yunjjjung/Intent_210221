@@ -27,7 +27,7 @@
         android:text="2번 액티비티로 문구 전달"/>
 
     <TextView
-        android:id="@+id/nicknameBtn"
+        android:id="@+id/EditNicknameActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="닉네임"
