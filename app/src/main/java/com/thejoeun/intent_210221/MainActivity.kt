@@ -1,6 +1,7 @@
 package com.thejoeun.intent_210221
 
 import android.app.Activity
+import android.app.Notification
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -82,7 +83,28 @@ class MainActivity : AppCompatActivity() {
 
 //            Intent => Action + URI 전달
             val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+//            문자 내용 기본값 입력 => 문자화면에 데이터 첨부
+            myIntent.putExtra("sms_body", "원하는 기본 메세지")
+
             startActivity(myIntent)
+
+        }
+
+        naverBtn.setOnClickListener {
+
+            val myUri = Uri.parse("https://www.naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+
+        }
+
+        kakaoBtn.setOnClickListener {
+
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+
         }
 
     }
