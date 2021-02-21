@@ -16,7 +16,14 @@ class MainActivity : AppCompatActivity() {
 
             val myIntent = Intent(this, FirstActivity::class.java)
             startActivity(myIntent) //비행기 발권할 때 myIntent를 가져가겟다
+        }
 
+        sendContentBtn.setOnClickListener {
+
+//            입력한 문구를 String 으로 추출(저장)
+            val inputContent = contentEdt.text.toString()
+
+//            두번째 화면 (SecondActivity) 으로 => inputContent의 값을 들고 => 이동
         }
     }
 }
