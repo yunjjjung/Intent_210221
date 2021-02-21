@@ -1,6 +1,8 @@
 package com.thejoeun.intent_210221
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -49,7 +51,39 @@ class MainActivity : AppCompatActivity() {
 //            어떤 데이터를 받으러 가는건지를 숫자로 구별해야함. ex 닉네임변경 - 1001
             startActivityForResult(myIntent, REQ_FOR_NICKNAME)
 
+        }
 
+        dialBtn.setOnClickListener {
+//            입력한 전화번호 저장
+            val phoneNum = phoneNumEdt.text.toString()
+//            안드로이드의 연결정보 Uri 로 변환
+            val myUri = Uri.parse("tel: ${phoneNum}")
+
+//            Intent를 활용해서 => 안드로이드 전화 화면 띄우자
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+
+            startActivity(myIntent)
         }
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+//        java override 기능
+//        requestCode 값 확인 => 닉네임을 가지러 갔다온게 맞는가?
+        if(requestCode == REQ_FOR_NICKNAME) {
+
+//            확인버튼을 누른게 맞는지 확인
+            if(resultCode == Activity.RESULT_OK) {
+//                새 닉네임을 받아서 => 닉네임 텍스트뷰에 반영
+                val newNickName = data?.getStringExtra("nick")
+
+             //   nicknameTxt.text = newNickName
+            }
+
+        }
+
+
+    }
+
 }
