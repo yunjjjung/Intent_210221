@@ -74,6 +74,16 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        smsBtn.setOnClickListener {
+
+            val smsNum = phoneNumEdt.text.toString()
+//            Uri 필요함
+            val myUri = Uri.parse("smsto:${smsNum}")
+
+//            Intent => Action + URI 전달
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+            startActivity(myIntent)
+        }
 
     }
 

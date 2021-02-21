@@ -61,7 +61,6 @@
     </LinearLayout>
 
 
-    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -91,5 +90,10 @@
             android:layout_height="wrap_content"
             android:text="전화 연결 (DIAL) "/>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/smsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="문자전송"/>
+
 </LinearLayout>
